@@ -1,46 +1,46 @@
-
-# Titanic Survival Prediction (ML Project)
+# Housing Price Prediction (ML Project)
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
-![Scikit-learn](https://img.shields.io/badge/Scikit--learn-0.24.2-orange)
-![Pandas](https://img.shields.io/badge/Pandas-1.5.3-purple)
-![Seaborn](https://img.shields.io/badge/Seaborn-0.12-green)
+![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.3.0-orange)
+![Pandas](https://img.shields.io/badge/Pandas-2.0.3-purple)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-3.7-green)
 
 ---
 
-##  Project Overview
-This project predicts whether a passenger **survived the Titanic disaster** using machine learning.  
-It covers **data cleaning**, **feature encoding**, **exploratory data analysis**, and **ML model training**.  
+## Project Overview
+This project predicts **California Housing Prices** using **Regression Models**.  
+It compares **Linear Regression** and **Decision Tree Regressor** based on **Mean Squared Error (MSE)** and **R² Score**.  
 
-Developed and tested in **Google Colab** for easy reproducibility.
+Developed and tested in **Google Colab**.
 
 ---
 
 ## Dataset
-- **Source:** Seaborn’s built-in Titanic dataset  
-- **Rows:** 891  
-- **Columns:** 15  
-- **Target Variable:** `survived` (0 = did not survive, 1 = survived)
+- **Source:** `sklearn.datasets.fetch_california_housing`  
+- **Rows:** ~20,640  
+- **Features:** 8 (e.g., `MedInc`, `HouseAge`, `AveRooms`, `Latitude`, `Longitude`)  
+- **Target Variable:** `MedHouseValue` (Median House Value in $100,000s)  
 
 ---
 
 ## Steps Completed
 
 1. **Data Loading**  
-   - Loaded Titanic dataset using Seaborn.
+   - Loaded dataset from Scikit-learn library.
 
-2. **Data Cleaning**  
-   - Filled missing `age` with **median**.  
-   - Filled missing `embarked` with **mode**.  
-   - Dropped `deck` column (too many missing values).  
-   - Dropped rows with missing `embark_town`.
+2. **Data Preprocessing**  
+   - Split dataset into **train (80%)** and **test (20%)** sets.  
 
-3. **Encoding**  
-   - Encoded `sex` using **LabelEncoder**.  
-   - Encoded `embarked` using **OneHotEncoder**.  
+3. **Model Training**  
+   - Trained **Linear Regression**  
+   - Trained **Decision Tree Regressor (max_depth=5)**  
 
-4. **Final Dataset**  
-   - Prepared dataset ready for ML model training.
+4. **Evaluation**  
+   - Compared results using **MSE** and **R² Score**.  
+
+5. **Visualization**  
+   - Plotted **Predicted vs Actual** values for both models.  
+   - Displayed performance comparison table.  
 
 ---
 
@@ -48,46 +48,53 @@ Developed and tested in **Google Colab** for easy reproducibility.
 - **Python**  
 - **Google Colab**  
 - **Pandas, Numpy**  
-- **Seaborn, Matplotlib**  
-- **Scikit-learn**
+- **Matplotlib**  
+- **Scikit-learn**  
 
 ---
 
-## Model Training & Evaluation
-- **Model Used:** Logistic Regression  
-- **Accuracy:** ~78%  
+## Model Training & Results
 
-### Confusion Matrix
+### Linear Regression
+- **MSE:** ~0.53  
+- **R² Score:** ~0.61  
 
-| Actual \ Predicted | 0 | 1 |
-|--------------------|---|---|
-| 0                  | 85 | 24 |
-| 1                  | 15 | 54 |
+###  Decision Tree Regressor
+- **MSE:** ~0.45  
+- **R² Score:** ~0.68  
 
-- **Key Features Influencing Survival:**  
-  `sex`, `pclass`, `sibsp`, `fare`, `embarked`
+---
+
+## Comparison Table
+
+| Model              | MSE   | R² Score |
+|--------------------|-------|----------|
+| Linear Regression  | 0.55  | 0.57     |
+| Decision Tree      | 0.52  | 0.59     |
+
+**Decision Tree performed better** (higher R² and lower MSE).
 
 ---
 
 ## Visualizations
-- Confusion Matrix Heatmap  
-- Feature Importance Bar Chart  
+- **Linear Regression Predictions**  
+- **Decision Tree Predictions**  
 
-*(See the Colab notebook for full visualizations and step-by-step code.)*
+*(Graphs available in notebook execution)*  
 
 ---
 
-## How to Run
+##  How to Run
 Click below to open the notebook in Google Colab:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aiman0-78/Titanic-ML-Project/blob/main/titanic_project.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aiman0-78/Housing_Price_Prediction/blob/main/House%20price%20prediction%20(regression)%20project.ipynb)
 
 ---
 
 ## Next Steps
-- Train additional ML models (Decision Trees, Random Forest, etc.).  
-- Compare model accuracy & performance.  
-- Deploy the best model as a **web app** (Streamlit/Flask).  
+- Try more models (Random Forest, Gradient Boosting).  
+- Perform hyperparameter tuning for better accuracy.  
+- Deploy the best model using **Streamlit** or **Flask**.  
 
 ---
 
